@@ -33,15 +33,15 @@ export default function Home() {
         marginBottom: '1rem',
       }}
     />
-
-    {books.length > 0 ? (
-      <ul>
-        {filteredBooks.map((book) => (
-          <li key={book.id}>
-            <strong>{book.title}</strong> by {book.author} ({book.year})
-          </li>
-        ))}
-      </ul>
+{books.length > 0 && (
+  <ul>
+    {filteredBooks.map((book) => (
+      <li key={book.id}>
+        <strong>{book.title}</strong> by {book.author} ({book.year})
+      </li>
+    ))}
+  </ul>
+)}
     ) : (
       <p>Loading books...</p>
     )}
