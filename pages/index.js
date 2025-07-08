@@ -41,10 +41,4 @@ export default function Home() {
     </div>
   );
 }
-<ul>
-  {filteredBooks.map((book) => (
-    <li key={book.id} style={{ marginBottom: '1rem' }}>
-      <strong>{book.title}</strong> by {book.author} ({book.year})
-    </li>
-  ))}
-</ul>
+
