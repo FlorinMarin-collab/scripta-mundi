@@ -1,9 +1,15 @@
-// redeploy trigger test
-import { useState } from 'react';
-import books from '../data/books.json';
+import { useEffect, useState } from 'react';
 
 export default function Home() {
   const [searchTerm, setSearchTerm] = useState('');
+  const [books, setBooks] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/books.json')
+      .then((res) => res.json())
+      .then((data) => setBooks(data))
+      .catch((error) => console.error('Failed to load books:', error));
+  }, []);
 
   const filteredBooks = books.filter((book) =>
     book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
