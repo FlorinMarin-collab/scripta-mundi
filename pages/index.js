@@ -1,30 +1,53 @@
+import { useState } from 'react';
+import books from '../data/books.json';
 
-  const filteredBooks = books.filter(
-    (book) =>
-      book.title.toLowerCase().includes(query.toLowerCase()) ||
-      book.author.toLowerCase().includes(query.toLowerCase())
+export default function Home() {
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredBooks = books.filter((book) =>
+    book.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    book.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
       <h1>Welcome to Scripta Mundi</h1>
       <p>Your gateway to the world of rare and meaningful books.</p>
-      
+
       <input
         type="text"
         placeholder="Search by title or author..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
-        style={{ padding: '0.5rem', fontSize: '1rem', marginBottom: '1rem', width: '100%' }}
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+        style={{
+          padding: '0.5rem',
+          width: '100%',
+          maxWidth: '400px',
+          marginBottom: '1rem',
+          borderRadius: '5px',
+          border: '1px solid #ccc'
+        }}
       />
 
-      <ul>
+      <div style={{ display: 'grid', gap: '1rem' }}>
         {filteredBooks.map((book) => (
-          <li key={book.id}>
-            <strong>{book.title}</strong> by {book.author} ({book.year})
-          </li>
+          <div
+            key={book.id}
+            style={{
+              padding: '1rem',
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
+            }}
+          >
+            <h2 style={{ margin: '0 0 0.5rem 0' }}>{book.title}</h2>
+            <p style={{ margin: 0 }}>
+              <em>{book.author}</em> &middot; {book.year}
+            </p>
+          </div>
         ))}
-      </ul>
+        {filteredBooks.length === 0 && <p>No books found.</p>}
+      </div>
     </div>
   );
 }
