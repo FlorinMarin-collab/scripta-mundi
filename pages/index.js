@@ -1,3 +1,4 @@
+// Trigger redeploy
 export default function Home() {
   return (
     <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
