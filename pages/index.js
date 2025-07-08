@@ -1,4 +1,3 @@
-// Trigger rebuild
 import { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -38,12 +37,11 @@ export default function Home() {
       />
 
       <ul>
-        {filteredBooks.map((book) => (
-          <li key={book.id}>
+        {filteredBooks.map((book, index) => (
+          <li key={index}>
             <strong>{book.title}</strong> by {book.author} ({book.year})
           </li>
         ))}
-        {filteredBooks.length === 0 && <li>No books found.</li>}
       </ul>
     </div>
   );
