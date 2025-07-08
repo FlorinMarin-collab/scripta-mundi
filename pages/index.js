@@ -5,7 +5,7 @@ export default function Home() {
   const [books, setBooks] = useState([]);
 
   useEffect(() => {
-    fetch('/data/books.json')
+    fetch('/books.json')
       .then((res) => res.json())
       .then((data) => setBooks(data))
       .catch((error) => console.error('Failed to load books:', error));
