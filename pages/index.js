@@ -29,25 +29,15 @@ export default function Home() {
         }}
       />
 
-      <div style={{ display: 'grid', gap: '1rem' }}>
+      <ul>
         {filteredBooks.map((book) => (
-          <div
-            key={book.id}
-            style={{
-              padding: '1rem',
-              border: '1px solid #ddd',
-              borderRadius: '8px',
-              boxShadow: '0 2px 4px rgba(0,0,0,0.05)'
-            }}
-          >
-            <h2 style={{ margin: '0 0 0.5rem 0' }}>{book.title}</h2>
-            <p style={{ margin: 0 }}>
-              <em>{book.author}</em> &middot; {book.year}
-            </p>
-          </div>
+          <li key={book.id}>
+            <strong>{book.title}</strong> by {book.author} ({book.year})
+          </li>
         ))}
-        {filteredBooks.length === 0 && <p>No books found.</p>}
-      </div>
+        {filteredBooks.length === 0 && <li>No books found.</li>}
+      </ul>
     </div>
   );
 }
+
