@@ -16,11 +16,10 @@ export default function Home() {
     book.author.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  return (
+ return (
   <div style={{ padding: '2rem', fontFamily: 'Arial, sans-serif' }}>
     <h1>Welcome to Scripta Mundi</h1>
     <p>Your gateway to the world of rare and meaningful books.</p>
-
     <input
       type="text"
       placeholder="Search by title or author..."
@@ -33,7 +32,6 @@ export default function Home() {
         marginBottom: '1rem',
       }}
     />
-
     {books.length > 0 ? (
       <ul>
         {filteredBooks.map((book) => (
