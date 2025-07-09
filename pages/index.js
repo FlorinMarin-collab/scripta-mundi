@@ -44,6 +44,5 @@ export default function Home() {
 ) : (
   <p>Loading books...</p>
 )}
-    )}
   </div>
 );
