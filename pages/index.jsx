@@ -43,7 +43,7 @@ export default function Home() {
           ))}
         </ul>
       ) : (
-        <p>No books found.</p>
+        <p>Loading books...</p>
       )}
     </div>
   );
