@@ -26,7 +26,7 @@ export default function Home({ books = [] }) {
         }}
       />
 
-      {books.length > 0 ? (
+      {filteredBooks.length > 0 ? (
         <ul>
           {filteredBooks.map((book) => (
             <li key={book.id} style={{ marginBottom: '1rem' }}>
@@ -35,7 +35,7 @@ export default function Home({ books = [] }) {
           ))}
         </ul>
       ) : (
-        <p>Loading books...</p>
+        <p>No books found.</p>
       )}
     </div>
   );
