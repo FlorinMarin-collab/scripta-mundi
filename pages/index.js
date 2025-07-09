@@ -33,8 +33,7 @@ export default function Home() {
         marginBottom: '1rem',
       }}
     />
-
-    {books.length > 0 ? (
+{books.length > 0 ? (
   <ul>
     {filteredBooks.map((book) => (
       <li key={book.id} style={{ marginBottom: '1rem' }}>
